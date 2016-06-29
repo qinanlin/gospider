@@ -5,9 +5,9 @@ import (
 	//"os"
 	"runtime"
 	//"runtime/pprof" // 引用pprof package
-	"zhihuranking/initproc"
-	//"zhihuranking/ranking"
-	"zhihuranking/spider"
+	"zhihuspider/initproc"
+	//"zhihuspider/ranking"
+	"zhihuspider/spider"
 )
 
 func main() {

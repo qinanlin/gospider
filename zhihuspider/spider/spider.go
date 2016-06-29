@@ -139,6 +139,7 @@ func (this *Spider) getPageInfo(doc *goquery.Document, url string) bool {
 
 func (this *Spider) processor(seq int, url string) {
 	if true == this.isExist(url) {
+		delete(this.urlMap, url)
 		return
 	}
 
