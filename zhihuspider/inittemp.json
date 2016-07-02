@@ -1,0 +1,20 @@
+{
+	"Spider":{
+		"Url":[
+			"https://www.zhihu.com/people/kaifulee/followees"],
+		"Num":100,
+		"Account":"",
+		"Passwd":"",
+		"DB":1,
+		"DBAddr":"localhost:6379",
+		"DBPasswd":"",
+		"CacheDB":[1],
+		"Threads":1
+	},
+	"Rank":{
+		"DB":1,
+		"DBAddr":"localhost:6379",
+		"DBPasswd":"",
+		"RankNum":100
+	}
+}

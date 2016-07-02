@@ -169,15 +169,16 @@ func (this *Spider) processor(seq int, url string) {
 	return
 }
 
-func NewSpider(url string, num int, DBNum int64, CacheDB int64) *Spider {
+func NewSpider(url string, num int, DBNum int64, CacheDB int64,
+	DBAddr string, DBPasswd string) *Spider {
 	sp := Spider{
 		baseUrl: url,
 		urlNum:  num,
 		cacheDB: CacheDB,
 	}
 	sp.reClient = redis.NewClient(&redis.Options{
-		Addr:     "localhost:6379",
-		Password: "",    // no password set
+		Addr:     DBAddr,
+		Password: DBPasswd,
 		DB:       DBNum, // use  DB
 	})
 
@@ -235,9 +236,9 @@ func (this *Spider) Run(seq int, ch chan bool) {
 	f.Println(seq, " the mapsize : ", len(this.urlMap))
 	f.Println(seq, " total num : ", this.count)
 
-	this.saveUrlMap()
-
 	f.Println(seq, " Spider consumes :", float32(end.Sub(start).Nanoseconds())/(1000*1000*1000*60), "min")
+
+	this.saveUrlMap()
 
 	this.reClient.Close()
 	this.cacheClient.Close()

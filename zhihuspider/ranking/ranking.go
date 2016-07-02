@@ -26,11 +26,11 @@ type com struct {
 	control int8
 }
 
-func NewRanking(DBNum int64, RankNum int64) *ranking {
+func NewRanking(DBNum int64, RankNum int64, DBAddr string, DBPasswd string) *ranking {
 	ra := ranking{rankNum: RankNum}
 	ra.reClient = redis.NewClient(&redis.Options{
-		Addr:     "localhost:6379",
-		Password: "",    // no password set
+		Addr:     DBAddr,
+		Password: DBPasswd,
 		DB:       DBNum, // use  DB
 	})
 

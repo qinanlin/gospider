@@ -6,8 +6,8 @@ import (
 	"runtime"
 	//"runtime/pprof" // 引用pprof package
 	"zhihuspider/initproc"
-	//"zhihuspider/ranking"
-	"zhihuspider/spider"
+	"zhihuspider/ranking"
+	//"zhihuspider/spider"
 )
 
 func main() {
@@ -36,12 +36,12 @@ func main() {
 		return
 	}
 
-	var sp []*spider.Spider
+	/*var sp []*spider.Spider
 	chs := make([]chan bool, int(jsonSpider.Threads))
 
 	for i := 0; i < int(jsonSpider.Threads); i++ {
 		sp = append(sp, spider.NewSpider(jsonSpider.Url[i], jsonSpider.Num, jsonSpider.DB,
-			jsonSpider.CacheDB[i]))
+			jsonSpider.CacheDB[i], jsonSpider.DBAddr, jsonSpider.DBPasswd))
 	}
 
 	sp[0].SimulateLogin(jsonSpider.Account, jsonSpider.Passwd)
@@ -56,7 +56,7 @@ func main() {
 
 	for _, ch := range chs {
 		<-ch
-	}
+	}*/
 
-	//ranking.NewRanking(jsonRank.DB, jsonRank.RankNum).Run()
+	ranking.NewRanking(jsonRank.DB, jsonRank.RankNum, jsonRank.DBAddr, jsonRank.DBPasswd).Run()
 }

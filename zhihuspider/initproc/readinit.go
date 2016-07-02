@@ -7,18 +7,22 @@ import (
 )
 
 type initSpider struct { //json struct
-	Url     []string
-	Num     int
-	Account string
-	Passwd  string
-	DB      int64
-	CacheDB []int64
-	Threads int64
+	Url      []string
+	Num      int
+	Account  string
+	Passwd   string
+	DB       int64
+	DBAddr   string
+	DBPasswd string
+	CacheDB  []int64
+	Threads  int64
 }
 
 type initRank struct {
-	DB      int64
-	RankNum int64
+	DB       int64
+	DBAddr   string
+	DBPasswd string
+	RankNum  int64
 }
 
 type InitFile struct {
